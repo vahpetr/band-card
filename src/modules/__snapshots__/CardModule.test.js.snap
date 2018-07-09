@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConnectedCardModule /> <CardModule /> renders without crashing 1`] = `
+<CardModule
+  card={
+    Object {
+      "bond": Object {
+        "data": Array [],
+        "error": null,
+        "filter": Object {
+          "isin": "RU000A0JU4L3",
+          "valueType": "Price",
+        },
+      },
+    }
+  }
+  dispatch={[Function]}
+>
+  <div
+    className="App"
+  >
+    <header
+      className="App-header"
+    >
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
+      />
+      <h1
+        className="App-title"
+      >
+        Bond card
+      </h1>
+    </header>
+    <BondHighstockComponent
+      data={Array []}
+      filter={
+        Object {
+          "isin": "RU000A0JU4L3",
+          "valueType": "Price",
+        }
+      }
+    >
+      <div
+        className="highstock"
+      />
+    </BondHighstockComponent>
+    <ValueTypeSelectComponent
+      filter={
+        Object {
+          "isin": "RU000A0JU4L3",
+          "valueType": "Price",
+        }
+      }
+      onFilterChange={[Function]}
+    >
+      <select
+        defaultValue="Price"
+        onChange={[Function]}
+      >
+        <option
+          key="Yield"
+          value="Yield"
+        >
+          Yield
+        </option>
+        <option
+          key="Spread"
+          value="Spread"
+        >
+          Spread
+        </option>
+        <option
+          key="Price"
+          value="Price"
+        >
+          Price
+        </option>
+      </select>
+    </ValueTypeSelectComponent>
+  </div>
+</CardModule>
+`;
+
+exports[`<ConnectedCardModule /> without crashing 1`] = `
+<CardModule
+  dispatch={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;

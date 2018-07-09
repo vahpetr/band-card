@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ValueTypeSelectComponent /> snapshot 1`] = `
+<ValueTypeSelectComponent
+  filter={
+    Object {
+      "isin": "RU000A0JU4L3",
+      "valueType": "Price",
+    }
+  }
+  onFilterChange={[Function]}
+>
+  <select
+    defaultValue="Price"
+    onChange={[Function]}
+  >
+    <option
+      key="Yield"
+      value="Yield"
+    >
+      Yield
+    </option>
+    <option
+      key="Spread"
+      value="Spread"
+    >
+      Spread
+    </option>
+    <option
+      key="Price"
+      value="Price"
+    >
+      Price
+    </option>
+  </select>
+</ValueTypeSelectComponent>
+`;
