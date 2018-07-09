@@ -11,26 +11,25 @@ configure({ adapter: new Adapter() });
 describe("<ValueTypeSelectComponent />", () => {
   it("renders without crashing", () => {
     const { filter } = initialState.bond;
-    const onBondDataFilterChange = sinon.spy();
+    const onChange = sinon.spy();
     const wrapper = mount(
       <ValueTypeSelectComponent
-        filter={filter}
-        onFilterChange={onBondDataFilterChange}
+        defaultValue={filter.valueType}
+        onChange={onChange}
       />
     );
 
-    expect(wrapper.props().filter.isin).toBe(filter.isin);
-    expect(wrapper.props().filter.valueType).toBe(filter.valueType);
-    expect(wrapper.props().onFilterChange).toBe(onBondDataFilterChange);
+    expect(wrapper.props().defaultValue).toBe(filter.valueType);
+    expect(wrapper.props().onChange).toBe(onChange);
   });
 
   it("snapshot", () => {
     const { filter } = initialState.bond;
-    const onBondDataFilterChange = sinon.spy();
+    const onChange = sinon.spy();
     const wrapper = mount(
       <ValueTypeSelectComponent
-        filter={filter}
-        onFilterChange={onBondDataFilterChange}
+        defaultValue={filter.valueType}
+        onChange={onChange}
       />
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -38,14 +37,14 @@ describe("<ValueTypeSelectComponent />", () => {
 
   it('simulates click events', () => {
     const { filter } = initialState.bond;
-    const onBondDataFilterChange = sinon.spy();
+    const onChange = sinon.spy();
     const wrapper = mount(
       <ValueTypeSelectComponent
-        filter={filter}
-        onFilterChange={onBondDataFilterChange}
+        defaultValue={filter.valueType}
+        onChange={onChange}
       />
     );
     wrapper.simulate('change');
-    expect(onBondDataFilterChange.called).toBeTruthy();
+    expect(onChange.called).toBeTruthy();
   });
 });

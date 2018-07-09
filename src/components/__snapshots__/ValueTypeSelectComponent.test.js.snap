@@ -2,13 +2,8 @@
 
 exports[`<ValueTypeSelectComponent /> snapshot 1`] = `
 <ValueTypeSelectComponent
-  filter={
-    Object {
-      "isin": "RU000A0JU4L3",
-      "valueType": "Price",
-    }
-  }
-  onFilterChange={[Function]}
+  defaultValue="Price"
+  onChange={[Function]}
 >
   <select
     defaultValue="Price"

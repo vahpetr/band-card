@@ -8,7 +8,9 @@ export class BondHighstockComponent extends React.Component {
   chart = null;
 
   render() {
-    return <div ref={element => (this.element = element)} className="highstock" />;
+    return (
+      <div ref={element => (this.element = element)} className="highstock" />
+    );
   }
 
   componentDidMount() {
@@ -39,7 +41,7 @@ export class BondHighstockComponent extends React.Component {
     this.chart = Highcharts.stockChart(this.element, config);
     window.setTimeout(() => {
       this.chart.rangeSelector.clickButton(1, true);
-    }, 10)
+    }, 10);
   }
 
   updateChart(options) {
@@ -54,7 +56,7 @@ export class BondHighstockComponent extends React.Component {
 
   createConfig(options) {
     const date = new Date();
-    const dateFormat = new Intl.DateTimeFormat().format(date);
+    const dateFormat = new Intl.DateTimeFormat("ru").format(date);
     const subtitle =
       `${options.filter.isin}` +
       "<br>" +
@@ -109,7 +111,7 @@ export class BondHighstockComponent extends React.Component {
             text: "Max",
             type: "all"
           }
-        ],
+        ]
       },
       tooltip: {
         shared: true,

@@ -7,18 +7,16 @@ export class ValueTypeSelectComponent extends React.Component {
   availableValueTypes = [ValueType.YIELD, ValueType.SPREAD, ValueType.PRICE];
 
   render() {
-    const { filter } = this.props;
+    const { defaultValue } = this.props;
     return (
-      <select defaultValue={filter.valueType} onChange={this.onValueTypeChange}>
+      <select defaultValue={defaultValue} onChange={this.onValueTypeChange}>
         {this.buildOptions()}
       </select>
     );
   }
 
   onValueTypeChange = ev => {
-    this.props.onFilterChange({
-      valueType: ev.target.value
-    });
+    this.props.onChange(ev.target.value);
   };
 
   buildOptions() {

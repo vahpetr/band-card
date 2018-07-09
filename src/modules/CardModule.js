@@ -26,15 +26,17 @@ export class CardModule extends React.Component {
         </header>
         <BondHighstockComponent data={data} filter={filter} />
         <ValueTypeSelectComponent
-          filter={filter}
-          onFilterChange={this.onBondDataFilterChange}
+          defaultValue={filter.valueType}
+          onChange={this.onBondDataFilterChange}
         />
       </div>
     );
   }
 
-  onBondDataFilterChange = (filter) => {
-    this.props.dispatch(bondDataFething(filter));
+  onBondDataFilterChange = (valueType) => {
+    this.props.dispatch(bondDataFething({
+      valueType
+    }));
   }
 }
 
