@@ -34,9 +34,6 @@ describe("e2e tests", () => {
   it(
     "screenshot",
     async () => {
-      // await page.evaluate(() => {
-      //   document.querySelector(".highstock").chart.rangeSelector.clickButton(1, true);
-      // });
       await page.waitFor(3000);
       await page.screenshot({ path: "images/screenshot.png" });
     },
