@@ -16,6 +16,9 @@ describe("Fetch bond data api", () => {
     const task = fetchBondData({
       valueType: "fake"
     });
+
+    // not work correctly on jest less 22.4.3 version
+    // hello not ejected create-react-app https://github.com/facebook/jest/issues/4946
     await expect(task).rejects.toThrowErrorMatchingSnapshot();
   });
 });
