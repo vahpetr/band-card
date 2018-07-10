@@ -3,24 +3,39 @@
 import React from "react";
 import * as Highcharts from "highcharts/highstock";
 
+/**
+ * Bond highstock component
+ */
 export class BondHighstockComponent extends React.Component {
   element = null;
   chart = null;
 
+  /**
+   * Draw highstock
+   */
   render() {
     return (
       <div ref={element => (this.element = element)} className="highstock" />
     );
   }
 
+  /**
+   * On create component event
+   */
   componentDidMount() {
     this.createChart(this.props);
   }
 
+  /**
+   * On dispose component event
+   */
   componentWillUnmount() {
     this.disposeChart();
   }
 
+  /**
+   * On update component event
+   */
   componentWillReceiveProps(nextProps) {
     if (this.chart) {
       this.updateChart(nextProps);
@@ -29,14 +44,11 @@ export class BondHighstockComponent extends React.Component {
     }
   }
 
-  onValueType(ev) {
-    this.props.onFilterChange({
-      valueType: ev.target.value
-    });
-  }
-
-  createChart(options) {
-    const config = this.createConfig(options);
+  /**
+   * Create chart method
+   */
+  createChart(props) {
+    const config = this.createConfig(props);
     // @ts-ignore
     this.chart = Highcharts.stockChart(this.element, config);
     window.setTimeout(() => {
@@ -44,21 +56,30 @@ export class BondHighstockComponent extends React.Component {
     }, 10);
   }
 
-  updateChart(options) {
-    const config = this.createConfig(options);
+  /**
+   * Update chart action
+   */
+  updateChart(props) {
+    const config = this.createConfig(props);
     this.chart.update(config, true);
   }
 
+  /**
+   * Dispose chart
+   */
   disposeChart() {
     this.chart.destroy();
     this.chart = null;
   }
 
-  createConfig(options) {
+  /**
+   * Create chart config
+   */
+  createConfig(props) {
     const date = new Date();
     const dateFormat = new Intl.DateTimeFormat("ru").format(date);
     const subtitle =
-      `${options.filter.isin}` +
+      `${props.filter.isin}` +
       "<br>" +
       `NII CAPITAL CORP, Telcommunicaions, NR, till ${dateFormat}`;
 
@@ -119,10 +140,10 @@ export class BondHighstockComponent extends React.Component {
       },
       series: [
         {
-          name: `${options.filter.isin}`,
+          name: `${props.filter.isin}`,
           pointStart: Date.UTC(2016, 0, 1),
           pointInterval: 3 * 24 * 3600 * 1000,
-          data: options.data,
+          data: props.data,
           marker: {
             enabled: null,
             radius: 2,

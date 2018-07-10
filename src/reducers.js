@@ -4,10 +4,13 @@ import { combineReducers } from "redux";
 import {
   BOND_DATA_FETCHING,
   BOND_DATA_SUCCEED,
-  BOND_DATA_FAILED,
+  BOND_DATA_FAILED
 } from "./actions";
 import { ValueType } from "./types";
 
+/**
+ * App initial state
+ */
 export const initialState = Object.freeze({
   bond: {
     filter: {
@@ -19,6 +22,9 @@ export const initialState = Object.freeze({
   }
 });
 
+/**
+ * Card reducer
+ */
 export function cardReducer(state = initialState, action) {
   switch (action.type) {
     case BOND_DATA_FETCHING: {
@@ -45,6 +51,9 @@ export function cardReducer(state = initialState, action) {
   }
 }
 
+/**
+ * App reducer. All combinded reducers
+ */
 export const appReducers = combineReducers({
   cardReducer
 });

@@ -2,9 +2,15 @@
 
 import { ValueType } from "./types";
 
+/**
+ * Fetch bond data
+ */
 export const fetchBondData = filter =>
   fakeFetchBondData("//fakeapi.bond.com", filter);
 
+/**
+ * Fake fetch bond data
+ */
 const fakeFetchBondData = (_, filter) =>
   new Promise((resolve, reject) => {
     window.setTimeout(() => {
@@ -17,8 +23,16 @@ const fakeFetchBondData = (_, filter) =>
     }, 0);
   });
 
+/**
+ * Generate number from range
+ * @param {number} min
+ * @param {number} max
+ */
 const rnd = (min, max) => Math.random() * (max - min) + min;
 
+/**
+ * Generate bond data array
+ */
 const generateBondData = filter => {
   const fillYield = (_, index) => rnd(20, 30) + Math.log(index);
   const fillSpread = (_, index) => rnd(2, 4) + index / 30;

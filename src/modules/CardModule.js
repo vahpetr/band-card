@@ -9,12 +9,13 @@ import "../App.css";
 import { bondDataFething } from "../actions";
 import { ValueTypeSelectComponent } from "../components/ValueTypeSelectComponent";
 
+/**
+ * Card module
+ */
 export class CardModule extends React.Component {
-  componentDidMount() {
-    const { dispatch, card } = this.props;
-    dispatch(bondDataFething(card.bond.filter));
-  }
-
+  /**
+   * Draw card
+   */
   render() {
     const { data, filter } = this.props.card.bond;
 
@@ -33,18 +34,38 @@ export class CardModule extends React.Component {
     );
   }
 
-  onBondDataFilterChange = (valueType) => {
-    this.props.dispatch(bondDataFething({
-      valueType
-    }));
+  /**
+   * On create event
+   */
+  componentDidMount() {
+    const { dispatch, card } = this.props;
+    dispatch(bondDataFething(card.bond.filter));
   }
+
+  /**
+   * On bond data filter change
+   */
+  onBondDataFilterChange = valueType => {
+    this.props.dispatch(
+      bondDataFething({
+        valueType
+      })
+    );
+  };
 }
 
+/**
+ * Map reducer to props
+ */
 const mapStateToProps = state => {
   return {
     card: state.cardReducer
   };
 };
+
+/**
+ * Map dispatch to props. Here we can add your actions
+ */
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 export const ConnectedCardModule = connect(

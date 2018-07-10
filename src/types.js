@@ -1,5 +1,8 @@
+/**
+ * Value types
+ */
 export const ValueType = {
-    YIELD: "Yield",
-    SPREAD: "Spread",
-    PRICE: "Price"
-}
+  YIELD: "Yield",
+  SPREAD: "Spread",
+  PRICE: "Price"
+};
