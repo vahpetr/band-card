@@ -51,6 +51,8 @@ export class BondHighstockComponent extends React.Component {
     const config = this.createConfig(props);
     // @ts-ignore
     this.chart = Highcharts.stockChart(this.element, config);
+
+    // BUG current version highstock not work correctly with rangeSelector.selected, can't find issue
     window.setTimeout(() => {
       this.chart.rangeSelector.clickButton(1, true);
     }, 10);
